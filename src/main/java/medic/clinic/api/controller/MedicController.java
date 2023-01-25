@@ -1,10 +1,7 @@
 package medic.clinic.api.controller;
 
 import jakarta.validation.Valid;
-import medic.clinic.api.medic.CreateMedicDTO;
-import medic.clinic.api.medic.ListMedicDTO;
-import medic.clinic.api.medic.Medic;
-import medic.clinic.api.medic.MedicRepository;
+import medic.clinic.api.medic.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.data.web.PageableDefault;
@@ -28,5 +25,12 @@ public class MedicController {
       return repository
          .findAll(pagination)
          .map(ListMedicDTO::new);
+   }
+
+   @PutMapping
+   @Transactional
+   public void update(@RequestBody @Valid UpdateMedicDTO data) {
+      var medic = repository.getReferenceById(data.id());
+      medic.updateInfo(data);
    }
 }
