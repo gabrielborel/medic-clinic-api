@@ -1,5 +1,19 @@
 package medic.clinic.api.address;
 
-public record CreateAddressDTO(String street, String district, String code, String city, String state, String number, String complement) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
+public record CreateAddressDTO(
+   @NotBlank
+   String street,
+   @NotBlank
+   String district,
+   @NotBlank @Pattern(regexp = "\\d{8}")
+   String code,
+   @NotBlank
+   String city,
+   @NotBlank
+   String state,
+   String number,
+   String complement) {
 }
