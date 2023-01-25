@@ -1,5 +1,6 @@
 package medic.clinic.api.controller;
 
+import jakarta.validation.Valid;
 import medic.clinic.api.medic.CreateMedicDTO;
 import medic.clinic.api.medic.Medic;
 import medic.clinic.api.medic.MedicRepository;
@@ -18,7 +19,7 @@ public class MedicController {
 
    @PostMapping
    @Transactional
-   public void create(@RequestBody CreateMedicDTO data) {
+   public void create(@RequestBody @Valid CreateMedicDTO data) {
       repository.save(new Medic(data));
    }
 }
