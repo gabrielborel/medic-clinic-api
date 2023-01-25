@@ -23,7 +23,7 @@ public class MedicController {
    @GetMapping
    public Page<ListMedicDTO> list(@PageableDefault(size = 10) Pageable pagination) {
       return repository
-         .findAll(pagination)
+         .findAllByActiveTrue(pagination)
          .map(ListMedicDTO::new);
    }
 
