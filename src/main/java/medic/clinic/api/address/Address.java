@@ -27,4 +27,34 @@ public class Address {
       this.city = data.city();
       this.state = data.state();
    }
+
+   public void updateInfo(CreateAddressDTO data) {
+      if (data.street() != null) {
+         this.street = data.street();
+      }
+
+      if (data.district() != null) {
+         this.district = data.district();
+      }
+
+      if (data.code() != null) {
+         this.code = data.code();
+      }
+
+      if (data.number() != null) {
+         this.number = data.number();
+      }
+
+      if (data.complement() != null) {
+         this.complement = data.complement();
+      }
+
+      if (data.city() != null) {
+         this.city = data.city();
+      }
+
+      if (data.state() != null) {
+         this.state = data.state();
+      }
+   }
 }
