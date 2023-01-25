@@ -17,6 +17,7 @@ public class Medic {
    private String email;
    private String cellphone;
    private String crm;
+   private boolean active;
    @Enumerated(EnumType.STRING)
    private MedicSpecialty specialty;
    @Embedded
@@ -29,6 +30,7 @@ public class Medic {
       this.cellphone = data.cellphone();
       this.specialty = data.specialty();
       this.address = new Address(data.address());
+      this.active = true;
    }
 
    public void updateInfo(UpdateMedicDTO data) {
@@ -43,5 +45,9 @@ public class Medic {
       if (data.address() != null) {
          this.address.updateInfo(data.address());
       }
+   }
+
+   public void inactivate() {
+      this.active = false;
    }
 }
