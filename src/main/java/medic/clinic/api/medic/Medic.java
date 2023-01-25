@@ -15,6 +15,7 @@ public class Medic {
    private Long id;
    private String name;
    private String email;
+   private String cellphone;
    private String crm;
    @Enumerated(EnumType.STRING)
    private MedicSpecialty specialty;
@@ -25,6 +26,7 @@ public class Medic {
       this.name = data.name();
       this.email = data.email();
       this.crm = data.crm();
+      this.cellphone = data.cellphone();
       this.specialty = data.specialty();
       this.address = new Address(data.address());
    }
