@@ -20,4 +20,12 @@ public class Medic {
    private MedicSpecialty specialty;
    @Embedded
    private Address address;
+
+   public Medic(CreateMedicDTO data) {
+      this.name = data.name();
+      this.email = data.email();
+      this.crm = data.crm();
+      this.specialty = data.specialty();
+      this.address = new Address(data.address());
+   }
 }
